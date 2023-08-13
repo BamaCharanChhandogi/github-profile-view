@@ -25,11 +25,12 @@
 }
 .middle{
   display: flex;
+  justify-content: center;
+  /* height: 120px; */
 }
 .search-bar{
   display: flex;
-
-  margin: 70px auto;
+  margin: 20px auto;
 }
 .search-bar input{
   width: 250px;
@@ -53,8 +54,30 @@
 }
 .main-profile .box{
   display: flex;
+  justify-content: center;
 }
 .box img{
   width: 300px;
   border-radius: 10px;
+}
+.default-profile-main{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.default-profile-main h2{
+  padding: 4px;
+  margin: 10px 0;
+  color: brown;
+}
+.default-profiles img{
+  width: 300px;
+  border-radius: 10px;
+}
+.default-profile-main .default-profiles{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  gap: 15px;
 }
