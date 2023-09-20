@@ -5,20 +5,31 @@
 }
 .navbar{
   background-color: rgb(0, 213, 255);
+  /* padding: 6px; */
+  display: flex;
+  justify-content:space-between;
   padding: 6px;
-  display: block;
-  flex-direction:column;
-  justify-content: center;
   text-align: center;
   align-items: center;
+  /* border: 2px solid red; */
+}
+.navbar .logo{
+  width: 10%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 20px;
 }
 .navbar img{
-   width: 50px;
-
-
+  /* border: 1px solid green; */
+   width: 40%;
+}
+.navbar .header{
+  display: flex;
+  width: 10%;
 }
 .navbar h1{
-  display: display;
+  font-size: 1.5rem;
 }
 .navbar span{
   color: rgb(236, 17, 17);
@@ -31,6 +42,7 @@
 .search-bar{
   display: flex;
   margin: 20px auto;
+  gap: 0.3rem;
 }
 .search-bar input{
   width: 250px;
@@ -38,15 +50,20 @@
   border: 1px solid black;
   border-radius: 5px;
 }
+.search-bar input::placeholder{
+  font-size: 1rem;
+}
 .search-bar button{
-
   padding: 6px;
   border-radius: 4px;
   border: 1px solid black;
   cursor: pointer;
   font-size: 20px;
-  font-weight: bold;
-
+  font-weight: 300;
+}
+.search-bar button:hover{
+  background-color: rgb(12, 211, 251);
+  border: none;
 }
 .main-profile{
   display: flex;
@@ -80,4 +97,26 @@
   justify-content: center;
   flex-direction: row;
   gap: 15px;
+}
+.list-item ul{
+  display: flex;
+  gap: 1.3rem;
+}
+.list-item{
+  margin-right: 30px;
+}
+.list-item ul li{
+  list-style-type: none;
+}
+.list-item ul li a{
+  text-decoration: none;
+  color: rgb(15, 14, 14);
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 10px;
+}
+.list-item ul li a:hover{
+  background-color: rgb(236, 17, 17);
+  color: white;
 }
