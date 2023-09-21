@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Github from "./Github";
 
 function DefaultProfile() {
     const [defaultProfiles, setDefaultProfiles] = useState([]);
@@ -21,7 +19,7 @@ function DefaultProfile() {
     <div>
       {defaultProfiles.length==0?<h1 className="server">Can't fetching...server is slow😒</h1>: (
         <div className="default-profile-main">
-          <h2>Top Profiles</h2>
+          {/* <h2>Top Profiles</h2> */}
           <div className="default-profiles">
             {defaultProfiles.map((profile) => (
               <div key={profile.id} className="default-profile">
@@ -43,4 +41,4 @@ function DefaultProfile() {
   )
 }
 
-export default DefaultProfile
+export default DefaultProfile;

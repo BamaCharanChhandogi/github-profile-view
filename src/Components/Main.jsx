@@ -104,7 +104,9 @@ function Main() {
                 </p>
               </div>
             ))}
-            <Github username={username}/>
+            {
+              username!=null?<Github username={username}/>:''
+            }
           </div>
         </div>
         

@@ -11,7 +11,7 @@ function Github(props) {
         username={props.username}
         blockSize={14}
         blockMargin={5}
-        color="#c084f5"
+        // color="#c084f5"
         fontSize={16}
       />
     </div>
