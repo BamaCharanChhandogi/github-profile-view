@@ -48,6 +48,7 @@ function Main() {
 
       setRepositories(repositoriesData);
     } catch (error) {
+      alert('Username incorrect, Refresh site');
       console.log("Error:", error);
     }
   };
@@ -72,14 +73,14 @@ function Main() {
               <img src={userData.avatar_url} alt="Profile Avatar" />
             </div>
             <div className="user-details">
-            <h2>{userData.name}</h2>
-              <p>{userData.bio}</p>
-              <a href={userData.blog} target="_blank" rel="noopener noreferrer">
-                Visit Portfolio
-              </a>
+            <h2>{userData.name || userData.login}</h2>
+              <p>{userData.bio || 'Bio: Not Specified'}</p>
               <p>Location: {userData.location || "Not specified"}</p>
               <p>Repositories: {userData.public_repos}</p>
               <p>Followers: {userData.followers}</p>
+              <a href={userData.blog || userData.html_url} target="_blank" rel="noopener noreferrer">
+                Visit Portfolio
+              </a>
             </div>
           </div>
           <div className="repositoriesDiv">

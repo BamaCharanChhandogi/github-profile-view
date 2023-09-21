@@ -83,7 +83,7 @@
 }
 .main-profile .box{
   display: flex;
-  width: 37%;
+  max-width: 37%;
   height: auto;
   gap: 1rem;
   justify-content: space-between;
@@ -97,9 +97,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  width: 50%;
 }
 .box .user-details h2{
-  width: 150%;
+  width: 100%;
 }
 .repositoriesDiv{
   display: flex;
