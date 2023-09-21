@@ -5,6 +5,7 @@ import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 import Navbar from './Components/navbar';
 import Repo from './Components/repo';
 import Main from './Components/Main';
+import DefaultProfile from './Components/DefaultProfile';
 function App() {
   // const [username, setUsername] = useState('');
   // const [userData, setUserData] = useState(null);
@@ -49,10 +50,11 @@ function App() {
       <Router>
         <Navbar/>
         <Routes>
-          <Route path='/Main' element={<Main/>} />
+          <Route path='/' element={<Main/>} />
+          {/* <Route path='/' element={<DefaultProfile/>} /> */}
           <Route path='/repo' element={<Repo/>}/>
         </Routes>
-      </Router>
+      </Router> 
       {/* <div className="middle">
         <div className="search-bar">
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='Search Username' />

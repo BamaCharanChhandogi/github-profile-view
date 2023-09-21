@@ -6,12 +6,12 @@ function Navbar() {
         <div className="logo">
         <img src="https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png" alt="" />
         <div className="header">
-        <h1><span>Git</span>Finder</h1>
+        <Link to="/"><h1><span>Git</span>Finder</h1></Link>
         </div>
         </div>
         <div className="list-item">
           <ul>
-            <li><Link to="/Main">Home</Link></li>
+            <li><Link to="/">Home</Link></li>
             <li><Link to="/repo">Repository</Link></li>
             <li><Link to="/Help">Help</Link></li>
           </ul>
