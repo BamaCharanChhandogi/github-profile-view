@@ -1,71 +1,52 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Github from "./Github";
 import DefaultProfile from "./DefaultProfile";
 
-function Main() {
-  const [username, setUsername] = useState("");
+function Main(props) {
   const [userData, setUserData] = useState(null);
   const [repositories, setRepositories] = useState([]);
   const [showContainer, setShowContainer] = useState(false);
-  const [defaultProfiles, setDefaultProfiles] = useState([]);
-  // useEffect(() => {
-  //   const defaultProfile = async () => {
-  //     try {
-  //       const response = await axios.get(`https://api.github.com/users`);
-  //       setDefaultProfiles(response.data);
-  //     } catch (error) {
-  //       console.log("error", error);
-  //     }
-  //   };
-  //   defaultProfile();
-  // }, []);
 
-  const fetchData = async () => {
-    if(username==''){
-      alert('Please enter a username');
-    }
-    const trimmedUsername = username.trim();
+  console.log(props.searchQuery);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (props.searchQuery === "") {
+          alert("Please enter a username");
+          return;
+        }
 
-    if (trimmedUsername === "") {
-      return;
-    }
+        const trimmedUsername = props.searchQuery.trim();
 
-    try {
-      const userResponse = await axios.get(
-        `https://api.github.com/users/${trimmedUsername}`
-      );
-      const userData = userResponse.data;
-      setUserData(userData);
-      setShowContainer(true);
+        if (trimmedUsername === "") {
+          return;
+        }
 
-      const repositoriesResponse = await axios.get(
-        `https://api.github.com/users/${trimmedUsername}/repos`
-      );
-      const repositoriesData = repositoriesResponse.data;
+        const userResponse = await axios.get(
+          `https://api.github.com/users/${trimmedUsername}`
+        );
+        const userData = userResponse.data;
+        setUserData(userData);
+        setShowContainer(true);
 
-      setRepositories(repositoriesData);
-    } catch (error) {
-      alert('Username incorrect, Refresh site');
-      console.log("Error:", error);
-    }
-  };
+        const repositoriesResponse = await axios.get(
+          `https://api.github.com/users/${trimmedUsername}/repos`
+        );
+        const repositoriesData = repositoriesResponse.data;
+        setRepositories(repositoriesData);
+      } catch (error) {
+        alert("Username incorrect, Refresh site");
+        console.error("Error:", error);
+      }
+    };
+
+    fetchData();
+  }, [props.searchQuery]);
 
   return (
     <div>
-      <div className="middle">
-        <div className="search-bar">
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            placeholder="Search Username"
-          />
-          <button onClick={fetchData}>Search</button>
-        </div>
-      </div>
       {showContainer && (
         <div id="container" className="main-profile">
           <div className="box">
@@ -73,68 +54,55 @@ function Main() {
               <img src={userData.avatar_url} alt="Profile Avatar" />
             </div>
             <div className="user-details">
-            <h2>{userData.name || userData.login}</h2>
-              <p>{userData.bio || 'Bio: Not Specified'}</p>
+              <h2>{userData.name || userData.login}</h2>
+              <p>{userData.bio || "Bio: Not Specified"}</p>
               <p>Location: {userData.location || "Not specified"}</p>
               <p>Repositories: {userData.public_repos}</p>
               <p>Followers: {userData.followers}</p>
-              <a href={userData.blog || userData.html_url} target="_blank" rel="noopener noreferrer">
+              <a
+                href={userData.blog || userData.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Visit Portfolio
               </a>
             </div>
           </div>
           <div className="repositoriesDiv">
-            {repositories.map((repo) => (
-              repo.fork==true?'':
-              <div key={repo.id} className="repository">
-                <h3>{repo.name}</h3>
-                <p>
-                  <strong>Language:</strong> {repo.language || "Not specified"}
-                </p>
-                <p>
-                  <strong>Stars:</strong> {repo.stargazers_count}
-                </p>
-                <p>
-                  <a
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Repository
-                  </a>
-                </p>
-              </div>
-            ))}
-            {
-              username!=null?<Github username={username}/>:''
-            }
+            {repositories.map((repo) =>
+              repo.fork == true ? (
+                ""
+              ) : (
+                <div key={repo.id} className="repository">
+                  <h3>{repo.name}</h3>
+                  <p>
+                    <strong>Language:</strong>{" "}
+                    {repo.language || "Not specified"}
+                  </p>
+                  <p>
+                    <strong>Stars:</strong> {repo.stargazers_count}
+                  </p>
+                  <p>
+                    <a
+                      href={repo.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Repository
+                    </a>
+                  </p>
+                </div>
+              )
+            )}
+            {props.searchQuery != null ? (
+              <Github username={props.searchQuery} />
+            ) : (
+              ""
+            )}
           </div>
         </div>
-        
       )}
-      {/* {defaultProfiles.length==0?<h1 className="server">Can't fetching...server is slow😒</h1>:userData == null && defaultProfiles.length > 0 && (
-        <div className="default-profile-main">
-          <h2>Top Profiles</h2>
-          <div className="default-profiles">
-            {defaultProfiles.map((profile) => (
-              <div key={profile.id} className="default-profile">
-                <img src={profile.avatar_url} alt="Profile Avatar" />
-                <h3>{profile.login}</h3>
-                <a
-                  href={profile.html_url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Visit Profile
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      )} */}
-      {
-        userData==null? <DefaultProfile/>:''
-      }
+      {userData == null ? <DefaultProfile /> : ""}
     </div>
   );
 }
