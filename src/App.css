@@ -38,6 +38,11 @@
 .navbar a{
   text-decoration: none;
 }
+.active{
+  background-color: rgb(236, 17, 112);
+  border-radius: 5px;
+  padding: 2px;
+}
 /* ...navbar  ...*/
 /* start input section */
 .middle{
@@ -149,12 +154,14 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-top: 20px;
 }
 .default-profile-main h2{
-  padding: 4px;
-  margin: 10px 0;
+  /* padding: 4px; */
   color: brown;
+  border-bottom: 2px solid brown;
+  width: 20%;
+  margin: 13px auto;
+  border-radius: 10px;
 }
 .default-profiles img{
   width: 300px;
@@ -190,10 +197,10 @@
   padding: 5px;
   border-radius: 10px;
 }
-.list-item ul li a:hover{
+/* .list-item ul li a:hover{
   background-color: rgb(236, 17, 17);
   color: white;
-}
+} */
 /* Github */
 .Github{
   border: 2px solid white;

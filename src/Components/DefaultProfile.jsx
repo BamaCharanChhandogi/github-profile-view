@@ -19,7 +19,7 @@ function DefaultProfile() {
     <div>
       {defaultProfiles.length==0?<h1 className="server">Can't fetching...server is slow😒</h1>: (
         <div className="default-profile-main">
-          {/* <h2>Top Profiles</h2> */}
+          <h2>Top Profiles</h2>
           <div className="default-profiles">
             {defaultProfiles.map((profile) => (
               <div key={profile.id} className="default-profile">

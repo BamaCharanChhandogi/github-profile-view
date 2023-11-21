@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 
 function Navbar(props) {
   const [query, setQuery] = useState("");
+  const location = useLocation();
   const navigate = useNavigate();
+  const [activeTab, setActiveTab] = useState("home");
+
   const handleSearch = () => {
     if (query === "") {
       alert("Please enter a search query");
@@ -13,12 +16,17 @@ function Navbar(props) {
     props.onSearch(query);
     navigate("/search");
   };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      // location.pathname = "/search";
       handleSearch();
     }
   };
+
+  const handleTabClick = (tab) => {
+    setActiveTab(tab);
+  };
+
   return (
     <div className="navbar">
       <div className="logo">
@@ -46,14 +54,20 @@ function Navbar(props) {
       </div>
       <div className="list-item">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li className={location.pathname === "/" ? "active" : ""}>
+            <Link to="/" onClick={() => handleTabClick("/")}>
+              Home
+            </Link>
           </li>
-          <li>
-            <Link to="/repo">Repository</Link>
+          <li className={location.pathname === "/repo" ? "active" : ""}>
+            <Link to="/repo" onClick={() => handleTabClick("/repo")}>
+              Repository
+            </Link>
           </li>
-          <li>
-            <Link to="/Help">Help</Link>
+          <li className={location.pathname === "/help" ? "active" : ""}>
+            <Link to="/help" onClick={() => handleTabClick("/help")}>
+              Help
+            </Link>
           </li>
         </ul>
       </div>
