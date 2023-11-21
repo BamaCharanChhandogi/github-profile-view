@@ -8,8 +8,6 @@ function Main(props) {
   const [userData, setUserData] = useState(null);
   const [repositories, setRepositories] = useState([]);
   const [showContainer, setShowContainer] = useState(false);
-
-  console.log(props.searchQuery);
   useEffect(() => {
     const fetchData = async () => {
       try {
