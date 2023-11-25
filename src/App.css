@@ -9,9 +9,10 @@
   /* padding: 6px; */
   display: flex;
   justify-content:space-between;
-  padding: 6px;
   text-align: center;
   align-items: center;
+  height: 70px;
+  border-radius: 4px;
   /* border: 2px solid red; */
 }
 .navbar .logo{
@@ -48,33 +49,30 @@
 .middle{
   display: flex;
   justify-content: center;
-  /* height: 120px; */
 }
 .search-bar{
   display: flex;
   margin: 20px auto;
+  justify-content: center;
+  align-items: center;
   gap: 0.3rem;
 }
 .search-bar input{
   width: 250px;
   padding: 10px;
-  border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 2px;
+  border: none;
 }
 .search-bar input::placeholder{
   font-size: 1rem;
 }
-.search-bar button{
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid black;
+.search-bar .search-icon{
+  font-size: 2.3rem;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 300;
-}
-.search-bar button:hover{
-  background-color: rgb(12, 211, 251);
-  border: none;
+  background-color: rgb(253, 251, 249);
+  border: 1px solid black;
+  padding: 3px;
+  border-radius: 2px;
 }
 /* start Main profile */
 .main-profile{
@@ -84,6 +82,7 @@
   align-items: center;
   width: 100%;
   height: auto;
+  margin-top: 20px;
   /* border: 1px solid green; */
 }
 .main-profile .box{
@@ -160,7 +159,9 @@
   color: brown;
   border-bottom: 2px solid brown;
   width: 20%;
-  margin: 13px auto;
+  margin: 0px auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
   border-radius: 10px;
 }
 .default-profiles img{

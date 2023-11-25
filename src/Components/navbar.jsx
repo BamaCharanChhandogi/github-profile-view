@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate,useLocation } from "react-router-dom";
-
+import SearchIcon from '@mui/icons-material/Search';
 function Navbar(props) {
   const [query, setQuery] = useState("");
   const location = useLocation();
@@ -50,7 +50,7 @@ function Navbar(props) {
           placeholder="Search Username"
           onKeyDown={handleKeyDown}
         />
-        <button onClick={handleSearch}>Search</button>
+        <SearchIcon onClick={handleSearch} className="search-icon"/>
       </div>
       <div className="list-item">
         <ul>
