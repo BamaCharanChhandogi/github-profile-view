@@ -1,72 +1,72 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 /* navbar start */
-.navbar{
+.navbar {
   background-color: rgb(0, 213, 255);
-  /* padding: 6px; */
   display: flex;
-  justify-content:space-between;
+  justify-content: space-between;
   text-align: center;
   align-items: center;
   height: 70px;
-  border-radius: 4px;
-  /* border: 2px solid red; */
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
 }
-.navbar .logo{
+.navbar .logo {
   width: 10%;
   display: flex;
   align-items: center;
   gap: 1rem;
   margin-left: 20px;
 }
-.navbar img{
-  /* border: 1px solid green; */
-   width: 40%;
+.navbar img {
+  width: 40%;
 }
-.navbar .header{
+.navbar .header {
   display: flex;
   width: 10%;
 }
-.navbar h1{
+.navbar h1 {
   font-size: 1.5rem;
 }
-.navbar span{
+.navbar span {
   color: rgb(236, 17, 17);
 }
-.navbar a{
+.navbar a {
   text-decoration: none;
 }
-.active{
+.active {
   background-color: rgb(236, 17, 112);
   border-radius: 5px;
   padding: 2px;
 }
 /* ...navbar  ...*/
 /* start input section */
-.middle{
+.middle {
   display: flex;
   justify-content: center;
 }
-.search-bar{
+.search-bar {
   display: flex;
   margin: 20px auto;
   justify-content: center;
   align-items: center;
   gap: 0.3rem;
 }
-.search-bar input{
+.search-bar input {
   width: 250px;
   padding: 10px;
   border-radius: 2px;
   border: none;
 }
-.search-bar input::placeholder{
+.search-bar input::placeholder {
   font-size: 1rem;
 }
-.search-bar .search-icon{
+.search-bar .search-icon {
   font-size: 2.3rem;
   cursor: pointer;
   background-color: rgb(253, 251, 249);
@@ -75,57 +75,58 @@
   border-radius: 2px;
 }
 /* start Main profile */
-.main-profile{
+.main-profile {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
   width: 100%;
   height: auto;
-  margin-top: 20px;
+  margin-top: 90px;
   /* border: 1px solid green; */
 }
-.main-profile .box{
+.main-profile .box {
   display: flex;
   max-width: 37%;
   height: auto;
   gap: 1rem;
   justify-content: space-between;
 }
-.box img{
+.box img {
   width: 100%;
   height: 100%;
   border-radius: 10px;
 }
-.box .user-details{
+.box .user-details {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   width: 50%;
 }
-.box .user-details h2{
+.box .user-details h2 {
   width: 100%;
 }
-.repositoriesDiv{
+.repositoriesDiv {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  z-index: 0;
 }
 .repositoriesDiv .repository {
   width: 350px;
   padding: 20px;
-    border-radius: 10px;
-    border: 2px solid white;
-    margin: 20px;
+  border-radius: 10px;
+  border: 2px solid white;
+  margin: 20px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   transition: transform ease 0.5s, box-shadow ease 0.5s;
 }
-.repositoriesDiv .repository:hover{
+.repositoriesDiv .repository:hover {
   transform: translateY(-5px);
   /* transform: scale(1.2, 1.2); */
   box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
-  border-right: 2px solid  rgb(236, 17, 17);
-  border-bottom: 2px solid  rgb(236, 17, 17);
+  border-right: 2px solid rgb(236, 17, 17);
+  border-bottom: 2px solid rgb(236, 17, 17);
 }
 /* designing repository paragraph */
 .repository p {
@@ -137,7 +138,7 @@
 
 /* designing repository link  */
 .repository a {
-  color:#100cf2;
+  color: #100cf2;
   text-decoration: none;
   margin: 5px 0;
   font-size: 17px;
@@ -149,48 +150,47 @@
   text-decoration: underline;
 }
 /* Default profile */
-.default-profile-main{
+.default-profile-main {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin: 60px auto;
 }
-.default-profile-main h2{
+.default-profile-main h2 {
   /* padding: 4px; */
   color: brown;
   border-bottom: 2px solid brown;
   width: 20%;
-  margin: 0px auto;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 20px auto;
   border-radius: 10px;
 }
-.default-profiles img{
+.default-profiles img {
   width: 300px;
   border-radius: 10px;
 }
-.default-profile-main .default-profiles{
+.default-profile-main .default-profiles {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   flex-direction: row;
   gap: 15px;
 }
-.server{
+.server {
   text-align: center;
   margin: 100px auto;
   color: #df4c58;
 }
-.list-item ul{
+.list-item ul {
   display: flex;
   gap: 1.3rem;
 }
-.list-item{
+.list-item {
   margin-right: 30px;
 }
-.list-item ul li{
+.list-item ul li {
   list-style-type: none;
 }
-.list-item ul li a{
+.list-item ul li a {
   text-decoration: none;
   color: rgb(15, 14, 14);
   font-size: 1.2rem;
@@ -204,14 +204,14 @@
 } */
 
 /* Github */
-.Github{
+.Github {
   border: 2px solid white;
   text-align: center;
   padding: 10px 30px;
-  margin:10px;
+  margin: 10px;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
 }
 .react-activity-calendar {
-  --react-activity-calendar-level-0:rgb(194, 210, 217) !important;
+  --react-activity-calendar-level-0: rgb(194, 210, 217) !important;
 }
